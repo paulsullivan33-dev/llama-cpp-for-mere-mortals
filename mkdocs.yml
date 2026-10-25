@@ -1,0 +1,27 @@
+site_name: llama.cpp for Mere Mortals
+site_description: Run language models on a machine of your own with llama.cpp. Building it from source, your first completion, GGUF model files and where they come from, quantization in plain terms with measured sizes and speeds, the built-in server, and the limits stated honestly.
+site_url: https://paulsullivan33-dev.github.io/llama-cpp-for-mere-mortals/
+
+# Guides live at the repo root (nice for GitHub browsing).
+# The deploy workflow copies them into docs/ before building.
+theme:
+  name: material
+
+nav:
+  - Home: index.md
+  - What llama.cpp Is: what-llama-cpp-is.md
+  - The Moving Parts: the-moving-parts.md
+  - Building llama.cpp: building-llama-cpp.md
+  - Your First Completion: your-first-completion.md
+  - GGUF and Models: gguf-and-models.md
+  - Quantization: quantization.md
+  - The Server: the-server.md
+  - Tuning and Performance: tuning-and-performance.md
+  - Converting Models: converting-models.md
+  - Running as a Service: running-as-a-service.md
+  - Recipes: recipes.md
+  - The Neighbours: the-neighbours.md
+  - Limits: limits.md
+  - Troubleshooting: troubleshooting.md
+  - Glossary: glossary.md
+  - Writing Criteria: criteria.md

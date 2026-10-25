@@ -1,0 +1,26 @@
+$ git -C lab/llama.cpp log -1 --format="%H %s"
+d327bf1f0780f87b8c01b367b61853b0c291d7c4 jinja : fix select and selectattr argument handling (#31059)
+
+$ llama-cli --version
+version: 0.7.0-dev (build 1, commit d327bf1)
+built with GNU 13.3.0 for Linux x86_64
+
+$ llama-server --version
+version: 0.7.0-dev (build 1, commit d327bf1)
+built with GNU 13.3.0 for Linux x86_64
+
+$ llama-bench --version
+version: 0.7.0-dev (build 1, commit d327bf1)
+built with GNU 13.3.0 for Linux x86_64
+
+$ llama-quantize (usage line)
+usage: lab/llama.cpp/build/bin/llama-quantize [--help] [--allow-requantize] [--leave-output-tensor] [--pure] [--imatrix] [--include-weights]
+       [--exclude-weights] [--output-tensor-type] [--token-embedding-type] [--tensor-type] [--tensor-type-file]
+
+$ llama-perplexity --help (first lines)
+----- common params -----
+
+-h,    --help, --usage                  print usage and exit
+--version                               show version and build info
+
+Machine: Linux 7.0.0-39-generic x86_64, CPUs: 2, RAM: 7.7Gi

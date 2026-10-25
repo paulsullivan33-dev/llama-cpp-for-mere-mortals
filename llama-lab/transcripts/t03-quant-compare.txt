@@ -1,0 +1,27 @@
+=== q8_0 (same prompt, --temp 0)
+> Write one short paragraph about a lighthouse keeper who finds a message in a bottle.
+The lighthouse keeper, a grizzled old man named Jack, was out on his daily patrol when he stumbled upon a small, weathered bottle on the rocky shore. As he carefully picked it up, he noticed that the label was torn and the words "H.M.S. LIGHTHOUSE" were scrawled in hasty hand. Jack's curiosity was piqued, and he carefully opened the bottle, revealing a faded message in a mixture of ink and water. The
+
+[ Prompt: 34.4 t/s | Generation: 9.3 t/s ]
+
+
+Exiting...
+
+=== q4_k_m (same prompt, --temp 0)
+> Write one short paragraph about a lighthouse keeper who finds a message in a bottle.
+One stormy night, a lighthouse keeper named Emilia found a mysterious bottle on her doorstep. As she opened it, she discovered a faded note inside, written in elegant script. The message read: "Meet me at the old lighthouse at midnight. Come alone." Emilia's heart raced as she wondered who could have written such a cryptic message and why. She decided to investigate further, and after a few days of searching, she found the old lighthouse at midnight, alone and expecting
+
+[ Prompt: 23.0 t/s | Generation: 7.8 t/s ]
+
+
+Exiting...
+
+=== q3_k_m (same prompt, --temp 0)
+> Write one short paragraph about a lighthouse keeper who finds a message in a bottle.
+Lighthouse keeper, Jenkins, was a diligent and hardworking individual who had spent years tending to the light. One stormy night, while out on his rounds, Jenkins stumbled upon a small, weathered bottle in the rocky shoreline. As he carefully examined the contents, he noticed a faint, handwritten note inside. The handwriting was old and worn, but the words seemed to match the time of the storm: "I've found it. I've found it. I've found it." Jenkins
+
+[ Prompt: 51.8 t/s | Generation: 18.0 t/s ]
+
+
+Exiting...
+

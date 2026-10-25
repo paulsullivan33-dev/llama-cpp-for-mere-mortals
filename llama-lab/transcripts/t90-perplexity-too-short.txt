@@ -1,0 +1,4 @@
+$ llama-perplexity -m smollm2-360m-instruct-q8_0.gguf -f short-sample.txt (362 tokens)
+E perplexity: you need at least 1024 tokens to evaluate perplexity with a context of 512
+E perplexity: the data file you provided tokenizes to only 362 tokens
+(the sample was extended in stages — 852, then 1017 tokens — before it would run)

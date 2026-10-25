@@ -1,0 +1,4 @@
+/home/hatch/workspace/llama-cpp-for-mere-mortals/lab/llama.cpp/common/trie.cpp:123:1: fatal error: error writing to /tmp/cczxlNOY.s: No space left on device
+build exit: 2
+build exit: 0
+(first build attempt: the compiler writes temporary files to /tmp; the sandbox /tmp is a small 512 MB tmpfs and filled mid-build. The build was rerun with TMPDIR pointed at a folder inside the workspace and completed: build exit: 0 — see t00 for the resulting tools.)

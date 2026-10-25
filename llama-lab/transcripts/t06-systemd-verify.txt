@@ -1,0 +1,3 @@
+$ systemd-analyze verify llama-lab/systemd/llama-server.service
+verify exit: 0
+(the only warnings printed concerned unrelated host units — a syslog drop-in and two apt timers; nothing named llama-server.service. The unit file is kept at llama-lab/systemd/llama-server.service, identical to chapter 11. Paths %h/llama.cpp and %h/models were made real for the check.)

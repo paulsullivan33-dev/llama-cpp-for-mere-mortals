@@ -1,0 +1,10 @@
+Sample text: lab/ppl.txt (thirteen short generic paragraphs, written for this guide)
+=== q8_0
+0.20.809.416 I Final estimate: PPL = 25.8492 +/- 3.38032
+
+=== q4_k_m
+0.19.225.134 I Final estimate: PPL = 26.4196 +/- 3.46946
+
+=== q3_k_m
+0.11.817.242 I Final estimate: PPL = 28.7810 +/- 3.81070
+

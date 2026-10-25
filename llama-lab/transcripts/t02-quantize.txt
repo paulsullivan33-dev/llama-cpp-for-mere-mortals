@@ -1,0 +1,26 @@
+=== $ llama-quantize --allow-requantize smollm2-360m-instruct-q8_0.gguf smollm2-360m-instruct-q5_k_m.gguf Q5_K_M
+llama_model_quantize_impl: model size  =   366.80 MiB (8.50 BPW)
+llama_model_quantize_impl: quant size  =   274.81 MiB (6.37 BPW)
+llama_model_quantize_impl: WARNING: 192 of 290 tensor(s) required fallback quantization
+llama_quantize: quantize time = 10155.98 ms
+
+=== $ llama-quantize --allow-requantize smollm2-360m-instruct-q8_0.gguf smollm2-360m-instruct-q4_k_m.gguf Q4_K_M
+llama_model_quantize_impl: model size  =   366.80 MiB (8.50 BPW)
+llama_model_quantize_impl: quant size  =   256.35 MiB (5.94 BPW)
+llama_model_quantize_impl: WARNING: 192 of 290 tensor(s) required fallback quantization
+llama_quantize: quantize time = 11547.33 ms
+
+=== $ llama-quantize --allow-requantize smollm2-360m-instruct-q8_0.gguf smollm2-360m-instruct-q3_k_m.gguf Q3_K_M
+llama_model_quantize_impl: model size  =   366.80 MiB (8.50 BPW)
+llama_model_quantize_impl: quant size  =   222.11 MiB (5.15 BPW)
+llama_model_quantize_impl: WARNING: 192 of 290 tensor(s) required fallback quantization
+llama_quantize: quantize time = 13685.90 ms
+
+$ ls -la lab/models/
+total 1153944
+drwxrwx--- 1 root root       260 Oct 25 00:53 .
+drwxrwx--- 1 root root       110 Oct 25 00:43 ..
+-rw-rw---- 1 root root 234686592 Oct 25 00:54 smollm2-360m-instruct-q3_k_m.gguf
+-rw-rw---- 1 root root 270590592 Oct 25 00:54 smollm2-360m-instruct-q4_k_m.gguf
+-rw-rw---- 1 root root 289944192 Oct 25 00:54 smollm2-360m-instruct-q5_k_m.gguf
+-rw-rw---- 1 root root 386404992 Oct 25 00:20 smollm2-360m-instruct-q8_0.gguf

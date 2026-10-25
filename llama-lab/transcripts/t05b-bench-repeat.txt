@@ -1,0 +1,19 @@
+=== repeat: Q8_0, threads 1,2,4
+| llama 3B Q8_0                  | 366.80 MiB |   361.82 M | CPU        |       1 |           pp512 |         54.93 ± 5.91 |
+| llama 3B Q8_0                  | 366.80 MiB |   361.82 M | CPU        |       1 |           tg128 |         23.68 ± 1.05 |
+| llama 3B Q8_0                  | 366.80 MiB |   361.82 M | CPU        |       2 |           pp512 |         66.99 ± 9.55 |
+| llama 3B Q8_0                  | 366.80 MiB |   361.82 M | CPU        |       2 |           tg128 |         19.75 ± 6.40 |
+| llama 3B Q8_0                  | 366.80 MiB |   361.82 M | CPU        |       4 |           pp512 |         68.54 ± 3.59 |
+| llama 3B Q8_0                  | 366.80 MiB |   361.82 M | CPU        |       4 |           tg128 |         13.01 ± 2.92 |
+
+=== Q4_K_M, 1 thread
+| llama 3B Q4_K - Medium         | 256.35 MiB |   361.82 M | CPU        |       1 |           pp512 |        28.73 ± 10.14 |
+| llama 3B Q4_K - Medium         | 256.35 MiB |   361.82 M | CPU        |       1 |           tg128 |         13.14 ± 1.47 |
+
+=== Q3_K_M, 1 thread
+| llama 3B Q3_K - Medium         | 222.11 MiB |   361.82 M | CPU        |       1 |           pp512 |        63.90 ± 23.18 |
+| llama 3B Q3_K - Medium         | 222.11 MiB |   361.82 M | CPU        |       1 |           tg128 |         19.97 ± 6.28 |
+
+=== Q4_K_M, 1 thread (confirmation run)
+| llama 3B Q4_K - Medium | 256.35 MiB | 361.82 M | CPU | 1 | pp512 | 31.39 ± 3.21 |
+| llama 3B Q4_K - Medium | 256.35 MiB | 361.82 M | CPU | 1 | tg128 | 11.04 ± 0.12 |

@@ -1,0 +1,13 @@
+[Unit]
+Description=llama.cpp server (small local model)
+After=network.target
+
+[Service]
+ExecStart=%h/llama.cpp/build/bin/llama-server \
+  -m %h/models/smollm2-360m-instruct-q4_k_m.gguf \
+  --host 127.0.0.1 --port 8080 \
+  -c 4096 -t 4
+Restart=on-failure
+
+[Install]
+WantedBy=default.target

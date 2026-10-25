@@ -1,0 +1,7 @@
+# The lab's working tree: the llama.cpp clone, its build
+# directory and the downloaded/quantized model files.
+# The lab's records live in llama-lab/ and are committed;
+# its bulk is not.
+lab/
+docs/
+site/

@@ -1,0 +1,71 @@
+llama.cpp — the distilled commands
+====================================================================
+Placeholders: <model.gguf> is the path to a
+GGUF file you downloaded; commands assume the
+build lives in ~/llama.cpp and models in
+~/models.
+
+BUILD (chapter 3)
+--------------------------------------------------------------------
+  git clone https://github.com/ggml-org/llama.cpp
+  cd llama.cpp
+  cmake -B build -DCMAKE_BUILD_TYPE=Release
+  cmake --build build -j
+  ./build/bin/llama-cli --version
+  # GPU (documented only in the guide):
+  cmake -B build -DGGML_CUDA=ON     # NVIDIA
+  cmake -B build -DGGML_VULKAN=ON   # Vulkan
+  git pull && cmake --build build -j   # update later
+
+FIRST RUNS (chapter 4)
+--------------------------------------------------------------------
+  llama-cli -m ~/models/model.gguf \
+    -p "Write a haiku about autumn rain." -st -n 96
+  llama-cli -m ~/models/model.gguf        # conversation
+  # in-session: /exit  /clear  /regen ; Ctrl-C stops a reply
+  llama-cli -m ~/models/model.gguf \
+    -sys "You are a concise writing assistant."
+
+MODELS (chapter 5)
+--------------------------------------------------------------------
+  curl -L -o ~/models/model.gguf \
+    https://huggingface.co/<owner>/<repo>/resolve/main/<file>.gguf
+  llama-cli -hf <owner>/<repo>:<QUANT>     # if built with curl
+  file model.gguf             # first four bytes read: GGUF
+
+QUANTIZE (chapter 6)
+--------------------------------------------------------------------
+  llama-quantize model-f16.gguf model-q4_k_m.gguf Q4_K_M
+  llama-quantize --allow-requantize \
+    model-q8_0.gguf model-q4_k_m.gguf Q4_K_M
+                                   # from an already-quant file
+  ls -la ~/models/            # measure the file you got
+  llama-perplexity -m model.gguf -f sample.txt
+                                   # needs 1024+ tokens of text
+
+SERVER (chapters 7 and 10)
+--------------------------------------------------------------------
+  llama-server -m ~/models/model.gguf \
+    --host 127.0.0.1 --port 8080
+  curl http://127.0.0.1:8080/health     # {"status":"ok"}
+  curl http://127.0.0.1:8080/completion \
+    -H 'Content-Type: application/json' \
+    -d '{"prompt":"The capital of France is","n_predict":16}'
+  curl http://127.0.0.1:8080/v1/chat/completions \
+    -H 'Content-Type: application/json' \
+    -d '{"messages":[{"role":"user","content":"Hello"}]}'
+  # as a service: ~/.config/systemd/user/llama-server.service
+  systemctl --user enable --now llama-server
+  journalctl --user -u llama-server -f
+
+MEASURE (chapter 8)
+--------------------------------------------------------------------
+  llama-bench -m ~/models/model.gguf -t 2
+  llama-bench -m ~/models/model.gguf -t 1,2,4 -r 3
+                                   # pp = prompt t/s, tg = gen t/s
+
+CONVERT (chapter 9 — documented only in this guide)
+--------------------------------------------------------------------
+  pip install -r requirements.txt       # in the llama.cpp clone
+  python3 convert_hf_to_gguf.py --outfile model-f16.gguf \
+    --outtype f16 /path/to/hf-model/

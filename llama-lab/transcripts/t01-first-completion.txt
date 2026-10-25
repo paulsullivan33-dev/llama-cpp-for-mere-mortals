@@ -1,0 +1,33 @@
+
+
+Loading model... |-\|/-\|/-\|/-\|/-\|/-\|/-\|/ 
+
+▄▄ ▄▄
+██ ██
+██ ██  ▀▀█▄ ███▄███▄  ▀▀█▄    ▄████ ████▄ ████▄
+██ ██ ▄█▀██ ██ ██ ██ ▄█▀██    ██    ██ ██ ██ ██
+██ ██ ▀█▄██ ██ ██ ██ ▀█▄██ ██ ▀████ ████▀ ████▀
+                                    ██    ██
+                                    ▀▀    ▀▀
+
+build      : b1-d327bf1
+model      : lab/models/smollm2-360m-instruct-q8_0.gguf
+ftype      : Q8_0
+modalities : text
+
+available commands:
+  /exit or Ctrl+C     stop or exit
+  /regen              regenerate the last response
+  /clear              clear the chat history
+  /read <file>        add a text file
+  /glob <pattern>     add text files using globbing pattern
+
+
+
+> Write one short paragraph about a lighthouse keeper who finds a message in a bottle.
+The lighthouse keeper, a gruff but kind-hearted soul named Jack, is sitting in his cozy workshop, surrounded by old books and ticking clocks. He's been tasked with maintaining the lighthouse, a place that has stood for centuries, and he's determined to keep it shining bright and safe for all who come through its door. One stormy night, Jack is out on the dock, repairing a broken lantern, when he hears the sound of a boat approaching. He turns to
+
+[ Prompt: 85.2 t/s | Generation: 23.4 t/s ]
+
+
+Exiting...

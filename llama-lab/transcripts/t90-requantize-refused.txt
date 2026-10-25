@@ -1,0 +1,5 @@
+$ llama-quantize smollm2-360m-instruct-q8_0.gguf out.gguf Q4_K_M   (no --allow-requantize)
+[   1/ 290] output_norm.weight                   - [   960,      1,      1,      1], type =    f32, size =    0.004 MiB
+[   2/ 290] token_embd.weight                    - [   960,  49152,      1,      1], type =   q8_0, size =   47.812 MiB
+[   3/ 290] blk.0.attn_k.weight                  - [   960,    320,      1,      1], type =   q8_0, llama_model_quantize: failed to quantize: requantizing from type q8_0 is disabled
+llama_quantize: failed to quantize model from 'lab/models/smollm2-360m-instruct-q8_0.gguf'

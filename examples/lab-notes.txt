@@ -1,0 +1,89 @@
+The lab — one real build, inside a sandbox with rules
+====================================================================
+
+The lab is llama.cpp built from source
+on the build machine (an Ubuntu 24.04
+sandbox, 2 CPUs, 7.7 GB RAM, no GPU):
+
+  * Shallow clone of ggml-org/llama.cpp
+    at commit d327bf1f0780f87b8c01b367b61853b0c291d7c4;
+    tools report version 0.7.0-dev
+    (build 1), built with GNU 13.3.0.
+  * cmake -B build -DCMAKE_BUILD_TYPE=Release,
+    then the five tools this guide uses:
+    llama-cli, llama-server, llama-quantize,
+    llama-bench, llama-perplexity.
+    CPU backend only.
+  * Model: SmolLM2-360M-Instruct Q8_0
+    GGUF, 386,404,992 bytes, from
+    HuggingFaceTB/SmolLM2-360M-Instruct-GGUF
+    (Apache-2.0), fetched with curl.
+    That repo ships only the Q8_0 file.
+
+The sandbox's rules, discovered by
+running into them (each is a transcript
+in llama-lab/transcripts/):
+
+  * /tmp is a 512 MB tmpfs. The first
+    build died mid-compile when the
+    compiler's temporary assembly files
+    filled it ("error writing to
+    /tmp/ccXXXXXX.s: No space left on
+    device", t90-build-tmp-full). The
+    build was rerun with TMPDIR pointed
+    inside the workspace and completed.
+  * The CPUs are shared. Bench numbers
+    carry wide error bars and one
+    result inverted the usual rule
+    (below). Treat every speed in this
+    guide as one shared machine's
+    story, useful for shape and for
+    back-to-back comparisons only.
+
+What ran, end to end: the build; a
+first completion with timings; three
+requantizes with sizes; a same-prompt
+comparison and a perplexity run per
+quant; the server answering /health,
+/completion, /v1/chat/completions and
+its own web page; bench runs at 1, 2
+and 4 threads and across quants; and
+systemd-analyze verify on the service
+unit (started under systemd: not run —
+the sandbox has no user session
+manager).
+
+The three surprises, kept in the guide
+rather than smoothed over:
+
+  * 192 of the model's 290 tensors fell
+    back to coarser types during
+    K-quantization (its layers are 960
+    wide; K blocks want a multiple of
+    256), so Q5_K_M/Q4_K_M/Q3_K_M came
+    out at 6.37/5.94/5.15 bits per
+    weight and the files cluster:
+    290/271/235 MB against Q8_0's 386.
+  * At one thread, Q4_K_M generated at
+    11.0 t/s against Q8_0's 23.7 —
+    dequant cost beat bandwidth saving
+    on this CPU, twice measured.
+  * Generation got slower as threads
+    rose past the two physical cores
+    (23.7 → 19.8 → 13.0 t/s), while
+    prompt processing gained modestly
+    and flattened (54.9 → 67.0 → 68.5).
+
+Two refusals worth knowing: quantize
+will not requantize an already-quant
+file without --allow-requantize (t90),
+and llama-perplexity wants at least
+1024 tokens of sample text (t90) — the
+sample was extended in stages until
+it ran. The final sample (thirteen
+generic paragraphs) is kept at
+llama-lab/ppl-sample.txt.
+
+Transcripts of the verification runs
+are in llama-lab/transcripts/,
+t00-t06 and t90.
